@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://luky.jinr.ru/uni/4/web20/calc.html -->
+<html><script src="chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/page/prompt.js"></script><script src="chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/page/runScript.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Калькулятор оценки по курсу бакалавриата "Технологии Web 2.0""</title>
+		
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width">
+		<link href="./Калькулятор оценки по курсу бакалавриата _Технологии Web 2.0___files/css" rel="stylesheet">
+		<link rel="stylesheet" href="./Калькулятор оценки по курсу бакалавриата _Технологии Web 2.0___files/style.css">
+		<style>
+			.b-form {margin:0;padding:0;}
+			.b-form fieldset {margin:0;padding:0;border:0;}
+			.b-form legend {display:none}
+			.b-form__input {margin:0 0 32px;padding:0;position:relative;}
+			.b-form__input input {height:32px;box-sizing:border-box;width:33.33%;border-radius:0;padding:0 10px;}
+			.b-formtable {border:1px solid #a7a7a7;border-collapse: collapse;width:100%;margin:0 0 32px;}
+			.b-formtable th {border:1px solid #a7a7a7;text-align:center;height:32px;vertical-align:center;}
+			.b-formtable th:first-child {text-align:left;background:#f0f0f0;}
+			.b-formtable td {border:1px solid #a7a7a7;text-align:center;height:32px;vertical-align:center;position:relative;}
+			.b-formtable td:first-child {text-align:left;background:#f0f0f0;}
+			.b-formtable .k {background:#fff0e0;}
+			.b-formtable .rf {background:#f0fff0;}
+			.b-main__mark1 {margin:0 0 8px;padding:0;}
+			.b-main__mark2 {margin:0;padding:0;font-weight:bold;}
+		</style>
+		<script>
+		var mark=0;
+		var pos=0;
+		var total=0;
+		function doCalc(o,v){
+			if (o.checked) mark+=parseInt(v); else mark-=parseInt(v);
+			total=mark+pos;
+			document.getElementById('output').innerHTML=total;
+			doMark(total);
+		}
+		function doPos(o){
+			pos=parseInt(o.value);
+			if (!pos) pos=0;
+			total=mark+pos;
+			document.getElementById('output').innerHTML=total;
+			doMark(total);
+		}
+		function doMark(v) {
+			oc=100*v/64;
+			var outOc="неудовлетворительно/незачет ("+oc+" из 100)";
+			if (oc >=60) outOc="удовлетворительно/зачет ("+oc+" из 100)";
+			if (oc >=70) outOc="хорошо/зачет ("+oc+" из 100)";
+			if (oc >=80) outOc="отлично/зачет ("+oc+" из 100)";
+			document.getElementById('mark').innerHTML=outOc;
+		}
+		</script>
+	</head>
+	<body>
+		<article class="b-main">
+			<h1 class="b-main__title"><a href="https://luky.jinr.ru/uni">Лукьянов К.В. для студентов университета "Дубна"</a></h1>
+			<h2 class="b-main__subtitle"><a href="https://luky.jinr.ru/uni/4/web20">4 курс, "Технологии Web 2.0"</a></h2>
+			<h3 class="b-main__subtitle">Калькулятор оценки</h3>
+			<form class="b-form">
+				<fieldset>
+					<legend>Калькулятор</legend>
+					<div class="b-form__input">
+						<input type="text" id="pos" placeholder="Посещаемость, недель из 14" onkeyup="doPos(this)">
+					</div>
+					<table class="b-formtable">
+						<tbody><tr class="b-formtable__row">
+							<th class="t">№ задания</th>
+							<th class="r">1</th>
+							<th class="rf">1р</th>
+							<th class="r">2</th>
+							<th class="rf">2р</th>
+							<th class="r">3</th>
+							<th class="r">4</th>
+							<th class="k">5к</th>
+							<th class="r">6</th>
+							<th class="r">7</th>
+							<th class="k">8к</th>
+							<th class="r">9</th>
+							<th class="r">10</th>
+							<th class="k">11к</th>
+							<th class="r">12</th>
+							<th class="rf">3р</th>
+							<th class="r">13</th>
+						</tr>
+						<tr class="b-formtable__row">
+							<td class="t">Выполнение</td>
+							<td class="r"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="rf"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="r"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="rf"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="r"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="r"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="k"><input type="checkbox" onclick="doCalc(this,8)"></td>
+							<td class="r"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="r"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="k"><input type="checkbox" onclick="doCalc(this,8)"></td>
+							<td class="r"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="r"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="k"><input type="checkbox" onclick="doCalc(this,8)"></td>
+							<td class="r"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="rf"><input type="checkbox" onclick="doCalc(this,2)"></td>
+							<td class="r"><input type="checkbox" onclick="doCalc(this,2)"></td>
+						</tr>
+					</tbody></table>
+				</fieldset>
+			</form>
+			<p class="b-main__mark1">Учебные баллы: <span id="output">0</span></p>
+			<p class="b-main__mark2">Оценка: <span id="mark">0</span></p>
+		</article>
+	
+<div id="forest-ext-shadow-host"></div></body></html>
